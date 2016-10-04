@@ -89,11 +89,13 @@ router.get('/signin', function (req, res, next) {
 });
 
 router.post('/signin', function (req, res, next) {
+  console.log('BODY: ', req.body);
   knex('users')
   .where({
     email: req.body.email
   })
   .then((results) => {
+    console.log('RESULTS: ', results);
     if (bcrypt.compareSync(req.body.password, results[0].password)) {
       console.log('results: ', results[0].password);
       req.session.user = {
