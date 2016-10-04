@@ -28,7 +28,7 @@ function createAdmin (knex) {
 function createUser (knex, id) {
   return knex('users')
     .insert({
-      id: id,
+      id: id + 100,
       first_name: faker.name.firstName(),
       last_name: faker.name.lastName(),
       email: faker.internet.email(),

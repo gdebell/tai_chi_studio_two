@@ -1,83 +1,83 @@
 exports.seed = function(knex, Promise) {
   return Promise.all([
     knex('classes_users').insert({
-      user_id: knex('users').where('id', 1).select('id'),
+      user_id: knex('users').where('id', 101).select('id'),
       class_id: knex('classes').where('id', 101).select('id')
     }),
     knex('classes_users').insert({
-      user_id: knex('users').where('id', 2).select('id'),
+      user_id: knex('users').where('id', 102).select('id'),
       class_id: knex('classes').where('id', 102).select('id')
     }),
     knex('classes_users').insert({
-      user_id: knex('users').where('id', 3).select('id'),
+      user_id: knex('users').where('id', 103).select('id'),
       class_id: knex('classes').where('id', 103).select('id')
     }),
     knex('classes_users').insert({
-      user_id: knex('users').where('id', 4).select('id'),
+      user_id: knex('users').where('id', 104).select('id'),
       class_id: knex('classes').where('id', 104).select('id')
     }),
     knex('classes_users').insert({
-      user_id: knex('users').where('id', 5).select('id'),
+      user_id: knex('users').where('id', 105).select('id'),
       class_id: knex('classes').where('id', 106).select('id')
     }),
     knex('classes_users').insert({
-      user_id: knex('users').where('id', 6).select('id'),
+      user_id: knex('users').where('id', 106).select('id'),
       class_id: knex('classes').where('id', 107).select('id')
     }),
     knex('classes_users').insert({
-      user_id: knex('users').where('id',7).select('id'),
+      user_id: knex('users').where('id',107).select('id'),
       class_id: knex('classes').where('id', 108).select('id')
     }),
     knex('classes_users').insert({
-      user_id: knex('users').where('id', 8).select('id'),
+      user_id: knex('users').where('id', 108).select('id'),
       class_id: knex('classes').where('id', 109).select('id')
     }),
     knex('classes_users').insert({
-      user_id: knex('users').where('id', 9).select('id'),
+      user_id: knex('users').where('id', 109).select('id'),
       class_id: knex('classes').where('id', 110).select('id')
     }),
     knex('classes_users').insert({
-      user_id: knex('users').where('id', 10).select('id'),
+      user_id: knex('users').where('id', 110).select('id'),
       class_id: knex('classes').where('id', 102).select('id')
     }),
     knex('classes_users').insert({
-      user_id: knex('users').where('id', 11).select('id'),
+      user_id: knex('users').where('id', 111).select('id'),
       class_id: knex('classes').where('id', 101).select('id')
     }),
     knex('classes_users').insert({
-      user_id: knex('users').where('id', 12).select('id'),
+      user_id: knex('users').where('id', 112).select('id'),
       class_id: knex('classes').where('id', 102).select('id')
     }),
     knex('classes_users').insert({
-      user_id: knex('users').where('id', 13).select('id'),
+      user_id: knex('users').where('id', 113).select('id'),
       class_id: knex('classes').where('id', 103).select('id')
     }),
     knex('classes_users').insert({
-      user_id: knex('users').where('id', 14).select('id'),
+      user_id: knex('users').where('id', 114).select('id'),
       class_id: knex('classes').where('id', 104).select('id')
     }),
     knex('classes_users').insert({
-      user_id: knex('users').where('id', 15).select('id'),
+      user_id: knex('users').where('id', 115).select('id'),
       class_id: knex('classes').where('id', 105).select('id')
     }),
     knex('classes_users').insert({
-      user_id: knex('users').where('id', 16).select('id'),
+      user_id: knex('users').where('id', 116).select('id'),
       class_id: knex('classes').where('id', 106).select('id')
     }),
     knex('classes_users').insert({
-      user_id: knex('users').where('id', 17).select('id'),
+      user_id: knex('users').where('id', 117).select('id'),
       class_id: knex('classes').where('id', 102).select('id')
     }),
     knex('classes_users').insert({
-      user_id: knex('users').where('id', 18).select('id'),
+      user_id: knex('users').where('id', 118).select('id'),
       class_id: knex('classes').where('id', 103).select('id')
     }),
     knex('classes_users').insert({
-      user_id: knex('users').where('id', 19).select('id'),
+      user_id: knex('users').where('id', 119).select('id'),
       class_id: knex('classes').where('id', 104).select('id')
     }),
     knex('classes_users').insert({
-      user_id: knex('users').where('id', 20).select('id'),
+      user_id: knex('users').where('id', 120).select('id'),
       class_id: knex('classes').where('id', 105).select('id')
     })
   ]);
