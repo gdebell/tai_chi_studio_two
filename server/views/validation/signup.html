@@ -5,73 +5,82 @@
 {% block content %}
 
 <div class="container">
-<section class="col-md-7">
-  <form class="form-horizontal" method="POST" action="/users/signup">
-      <div class="form-group">
-        <label for="inputEmail" class="col-md-4 control-label" id="userLabel">Email</label>
-        <div class="col-md-8">
-          <input type="text" class="form-control personalInfo" id="email" name="email" placeholder="Email">
-        </div>
-
-        <label for="first_name" class="col-md-4 control-label" id="userLabel">First Name</label>
-        <div class="col-md-8">
-          <input type="text" class="form-control personalInfo" id="first_name" name="firstName">
-        </div>
-
-        <label for="last_name" class="col-md-4 control-label" id="userLabel">Last Name</label>
-        <div class="col-md-8">
-          <input type="text" class="form-control personalInfo" id="last_name" name="lastName">
-        </div>
-
-        <label for="address_line_1" class="col-md-4 control-label" id="userLabel">Street Address 1</label>
-        <div class="col-md-8">
-          <input type="text" class="form-control personalInfo" id="line_1" name="address_line_1">
-        </div>
-
-        <label for="address_line_2" class="col-md-4 control-label" id="userLabel">Street Address 2</label>
-        <div class="col-md-8">
-          <input type="text" class="form-control personalInfo" id="line_2" name="address_line_2">
-        </div>
-
-        <label for="city" class="col-md-4 control-label" id="userLabel">City</label>
-        <div class="col-md-8">
-          <input type="text" class="form-control personalInfo" id="city" name="city">
-        </div>
-
-        <label for="state" class="col-md-4 control-label" id="userLabel">State</label>
-        <div class="col-md-8">
-          <input type="text" class="form-control personalInfo" id="state" name="state">
-        </div>
-
-        <label for="zip" class="col-md-4 control-label" id="userLabel">Zip</label>
-        <div class="col-md-8">
-          <input type="text" class="form-control personalInfo" id="zip" name="zip">
-        </div>
-
-        <label for="comments" class="col-md-4 control-label" id="userLabel">Tell Us About Yourself:</label>
-        <div class="col-md-8">
-          <input type="textarea" class="form-control personalInfo" id="comments" name="comments">
-        </div>
-
-        <label for="inputPassword" class="col-md-4 control-label" id="userLabel">Password</label>
-        <div class="col-md-8">
-          <input type="password" class="form-control personalInfo" id="inputPassword" placeholder="Password" name="password">
-        </div>
-        <br><br>
-        <div class="col-md-12 checkbox">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            </p>
-        </div>
-        <div class="col-md-12">
+<form class="form-horizontal">
+    <div class="form-group">
+      <label for="inputEmail" class="col-lg-2 control-label">Email (require)</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="email" name="email" placeholder="Email">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="first_name" class="col-lg-2 control-label">First Name (require)</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="firstName" name="firstName">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="last_name" class="col-lg-2 control-label">Last Name (require)</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="lastName" name="lastName">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="address_line_1" class="col-lg-2 control-label">Street Address 1 (require)</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="line_1" name="address_line_1">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="address_line_1" class="col-lg-2 control-label">Street Address 2</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="line_2" name="address_line_2">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="address_line_1" class="col-lg-2 control-label">City (require)</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="city" name="city">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="address_line_1" class="col-lg-2 control-label">State (require)</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="state" name="state">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="address_line_1" class="col-lg-2 control-label">Zip (require)</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="zip" name="zip">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="comments" class="col-lg-2 control-label">What should we know about you?</label>
+      <div class="col-lg-10">
+        <input type="textarea" class="form-control" id="comments" name="comments">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputPassword" class="col-lg-2 control-label">Password (require)</label>
+      <div class="col-lg-10">
+        <input type="password" class="form-control" id="inputPassword" placeholder="Password" name="password">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="checkbox">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
           <input type="checkbox" name="tc_checkbox" id="tc_checkbox"> Accept Terms and Conditions
         </div>
-        <div class="col-md-12" id="saveButtons">
-          <button type="submit"  id="saveUserButton" value="Save">Submit</button>
-          <input type="button" value="Cancel" method="get" activity="/">
-        </div>
       </div>
-    </form>
-  </section>
+    <div class="validation"></div>
+    <br>
+    <div class="form-group">
+      <input type="button"  id="saveUserButton" method="post" activity="/users/edit_user" value="Save">
+      <input type="button" value="Cancel" method="get" activity="/">
+      <div class="response_message">
+      </div>
+    </div>
+  </form>
 </div>
 <script type="text/javascript" src="//code.jquery.com/jquery-2.1.4.min.js"></script>
 {% endblock %}

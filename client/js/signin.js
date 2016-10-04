@@ -1,16 +1,11 @@
 (function () {
-
   console.log('sign in sanity check!');
-
-  $('#signInButton').on('click', (event) => {
-      event.preventDefault();
-
+  $('#signInButton').on('click', function (e) {
+      e.preventDefault();
       const userPayload = {
         email: $('#sign_in_email').val(),
         password: $('#sign_in_password').val()
       };
-
-      //PUT request with payload for server
       $.ajax({
         type: 'POST',
         url: '/users/signin',
