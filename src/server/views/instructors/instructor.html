@@ -1,0 +1,43 @@
+{% extends "_base.html" %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <section class="col-md-5">
+      {{ error }}
+      <h2>Instructor</h2>
+      <img src="../images/{{instructor[0].photo_url}}" alt="instractor photo not available">
+      <br>
+      <h3>{{instructor[0].names}}</h3>
+      <br>
+      <p>{{instructor[0].biography}}</p>
+      <br>
+      <h2>This instructor is teaching</h2>
+      <div class="wrap">
+      {% for class_info in class_info %}
+        <h4><a href="../classes/{{class_info.id}}/class">{{class_info.name}}</a>
+        {{class_info.day}}
+        {{class_info.start_time}} ~
+        </h4>
+      {% endfor %}
+      </div>
+      <br>
+      <a href="/reviews/{{instructor[0].id}}" type="button" class="btn btn-primary form-button">Review This instructor</a>
+    </section>
+    <section class="col-md-7">
+      <h2>Instructor Reviews</h2>
+      {% for instructor in review %}
+        <div class="review">
+          <p>{{instructor.review}}</p>
+          <p>{{instructor.rating | safe}}</p>
+          <hr>
+        </div>
+      {% endfor %}
+    </section>
+  </div>
+</div>
+
+{% endblock %}

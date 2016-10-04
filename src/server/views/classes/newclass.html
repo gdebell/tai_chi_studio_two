@@ -1,0 +1,68 @@
+{% extends "_base.html" %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+
+  <div class="container">
+    <h1>Create New Class</h1>
+    <hr></hr>
+    <div class="col-md-6 col-md-offset-3">
+        <form class="postNewClass">
+          <div class="form-group">
+            <label for="nameOfClass">Class</label>
+            <select class="form-control nameOfClass" id="nameOfClass">
+              <option disabled selected=true>Select Class</option>
+              {% for name in classNames %}
+              <option>{{ name.name }}</option>
+              {% endfor %}
+              <option>Combination style</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea class="form-control" id="description" rows="4"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="instructor">Instructor</label>
+            <select class="form-control instructorID" id='instructorID'>
+              <option disabled selected=true>Select Instructor</option>
+              {% for instructor in instructors %}
+              <option data-instructorID="{{instructor.id}}">{{ instructor.names }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="classDay">Day</label>
+            <select class="form-control day" id='classDay'>
+              <option disabled selected=true>Select Day</option>
+              <option>Monday</option>
+              <option>Tuesday</option>
+              <option>Wednesday</option>
+              <option>Thursday</option>
+              <option>Friday</option>
+
+            </select>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-4">
+              <label for="start_time">Start Time</label>
+              <input type="time" class="form-control" id="start_time">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="end_time">End Time</label>
+              <input type="time" class="form-control" id="end_time">
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-3">
+              <label for="size">Class Size</label>
+              <input type="number" min="1" max="10" class="form-control" id="size">
+            </div>
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

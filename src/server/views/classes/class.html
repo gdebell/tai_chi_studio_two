@@ -1,0 +1,77 @@
+{% extends "_base.html" %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+{{user.is_admin}}
+  <div class="container">
+
+    {% for user in users %}
+    <div class="row idenfity_user" name="idenfity_user" value="{{user.id}}">
+    {% endfor %}
+
+      <div class="col-md-5">
+        {% for class in classes %}
+         <id="class_num" input type="hidden" value="{{class.id}}" name="class" id="single_class_id">
+        <h2>{{class.name}}</h2><br><br>
+        <img src="../../images/{{class.photo_url}}" alt="instructor photo">
+      </div>
+
+      <div class="col-md-7">
+          <br><br>
+          <p>Instructor: {{class.names}}</p>
+          <p>Day: {{class.day}}</p>
+          <p>Start Time: {{class.start_time}}</p>
+          <p>End Time: {{class.end_time}}</p>
+          <p>Available Spots: {{class.size}}</p>
+          <p>{{class.description}}</p><br>
+          <a href="/classes/{{class.id}}/add_user"><button type="button" class="btn btn-success add_user_to_class" name="{{class.id}}" data-id="{{class.id}}">Sign Up For Class</button></a> <div class="alertuser"></div>
+          {% if user.is_admin %}
+          <a href="/classes/{{class.id}}/class/edit"><button type="button" class="btn btn-primary edit_class"  name="{{class.id}}" data-id={{class.id}}>Edit Class</button></a>
+          <a href="/classes/{{class.id}}/class"><button type="button" class="btn btn-danger delete_class" name="{{class.id}}" data-id={{class.id}}>Delete Class</button></a>
+          {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+    <br><br>
+    {% if user.is_admin %}
+    <div class="row">
+      <div class="col-md-12">
+        <h3>Enrollment</h3>
+
+        <table class="table table-hover">
+          <tr>
+            <th>Accepted Liability</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Zip</th>
+            <th>Comments</th>
+            <th></th>
+          </tr>
+          {% for user in users %}
+          <tr>
+            <td>{{user.liability}}</td>
+            <td>{{user.first_name}}</td>
+            <td>{{user.last_name}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.address_line_1}}</td>
+            <td>{{user.address_line_2}}</td>
+            <td>{{user.city}}</td>
+            <td>{{user.state}}</td>
+            <td>{{user.zip}}</td>
+            <td>{{user.comments}}</td>
+            <td><a href=""><button type="button" class="btn btn-danger delete-user btn-sm" name="{{user.user_id}}" data-id={{user.user_id}}>Remove Student from Class</button></a></td>
+          </tr>
+          {% endfor %}
+        </table>
+    </div>
+  </div>
+  {% endif %}
+</div>
+
+{% endblock %}
