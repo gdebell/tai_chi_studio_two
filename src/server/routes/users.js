@@ -60,7 +60,6 @@ router.post('/signup', (req, res, next) => {
   var hash = bcrypt.hashSync(req.body.password, 10);
   knex('users')
   .insert({
-    id: 100,
     first_name: req.body.firstName,
     last_name: req.body.lastName,
     email: req.body.email,
@@ -76,6 +75,7 @@ router.post('/signup', (req, res, next) => {
   }, '*')
   .then((results) => {
     res.send(200);
+    console.log('hit .then in signup');
   })
   .catch((err) => {
     console.log(err);
@@ -165,7 +165,7 @@ router.get('/edit/user_edit_profile', function (req, res, next) {
   });
 
 router.get('/user/logout', (req, res, next) => {
-    console.log('in logout');
+    console.log('in logout..............');
     req.session.user = {};
     req.logout();
     res.status(200).json({message:'success'});
