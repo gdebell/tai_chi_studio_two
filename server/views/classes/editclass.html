@@ -1,0 +1,64 @@
+{% extends "_base.html" %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+
+<div class="container edit-container">
+  <h2>Edit Class Information:</h2>
+  <br><br>
+
+  <form class="form-horizontal edit-class" method="POST"
+ action="/classes/{{id}}/class/edit">
+
+  <div class="container" id="id" name="id" value="{{id}}">
+
+    <select class="form-control" id="class_name">
+      <option>Select Class Name</option>
+      {% for class in classes %}
+      <option name="class_name" value=
+      "{{class.name}}">{{class.name}}</option>
+      {% endfor %}
+    </select>
+    <br>
+
+    <select class="form-control" id="instructor">
+      <option>Select Instructor ID</option>
+      {% for instructor in instructors %}
+      <option name="instructor_id" value="{{instructor.instructor_id}}">{{instructor.instructor_id}}</option>
+      {% endfor %}
+    </select>
+    <br>
+
+    <select class="form-control" id="day">
+      <option>Select Day of Class</option>
+      {% for day in days %}
+      <option name="day" value="{{day.day}}">{{day.day}}</option>
+      {% endfor %}
+    </select>
+    <br>
+
+    <select class="form-control" id="start_time">
+      <option>Select Start Time</option>
+      {% for start in starts %}
+      <option name="start_time" value="{{start.start_time}}">{{start.start_time}}</option>
+      {% endfor %}
+    </select>
+    <br>
+
+    <select class="form-control" id="size">
+      <option>Select Class Size</option>
+      {% for size in sizes %}
+      <option name="size" value="{{size.size}}">{{size.size}}</option>
+      {% endfor %}
+    </select>
+    <br>
+
+    <button type="submit" value="submit" class="btn btn-success btn-lg" id="edit_class_func">Save Changes</button>
+
+    <a href="/classes" type="button" class="btn btn-info btn-lg">Cancel</a>
+
+    </div>
+    </form>
+  </div>
+{% endblock %}

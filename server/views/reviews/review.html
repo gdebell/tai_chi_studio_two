@@ -1,0 +1,33 @@
+{% extends "_base.html" %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+
+<div class="container">
+  <h2>Review instractor</h2>
+  <form name="review_form" method="POST" action="/reviews/{{instructor[0].id}}">
+    <h4>instructor Name:</h4>
+    <h3>{{instructor[0].names}}</h3>
+    <div class="form-group">
+      <h4>Review:</h4>
+      <textarea class="form-control" rows="5" id="input_review" name="input_review"></textarea>
+    </div>
+
+    <!-- rating -->
+    <div class="rating_wrap">
+      <label class="star fa fa-star-o fa-lg" for="star_1" data-star="1"></label>
+      <label class="star fa fa-star-o fa-lg" for="star_2" data-star="2"></label>
+      <label class="star fa fa-star-o fa-lg" for="star_3" data-star="3"></label>
+      <label class="star fa fa-star-o fa-lg" for="star_4" data-star="4"></label>
+      <label class="star fa fa-star-o fa-lg" for="star_5" data-star="5"></label>
+    </div>
+
+    <input type="hidden" id="input_id" value="{{instructor[0].id}}">
+    <a href="/instructors/{{instructor[0].id}}" type="button" class="btn btn-warning form-button">Cancel</a>
+    <button type="submit" class="btn btn-success form-button">Submit</button>
+  </form>
+  <br><br>
+</div>
+
+{% endblock %}

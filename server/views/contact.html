@@ -1,0 +1,36 @@
+{% extends "_base.html" %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+
+<div class="container">
+  <div class="col-md-12">
+  </div>
+  <div class="col-md-5">
+    <h3>Tai Chi Studio Zero</h3>
+    <div class="contact-info">
+      <h4>Phone Number: 123.456.7891
+      <h4>Email Address: Info@TaiChiStudio.com
+      <h4>Location: 1062 Delaware St Denver, CO 80204
+      <h4>Online reservations can be made by using the Tai Chi Studio app.</h4>
+      <h4>Walk-Ins are welcome.</h4>
+    </div>
+  </div>
+  <div class="col-md-1"></div>
+  <div class="col-md-6">
+    <br>
+    <div id="map"></div>
+    <div class="like-us">
+      <h4>Like us on Facebook and Twitter!
+      <i class="fa fa-facebook-official fa-2x" aria-hidden="true"></i>
+      <i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i>
+      <i class="fa fa-envelope fa-2x" aria-hidden="true"></i> </h4>
+    </div>
+  </div>
+</div>
+
+<script async defer src="//maps.googleapis.com/maps/api/js?key=AIzaSyDFfrnIjM18PD2uN0LNqvJwiephtBUjFYw&callback=initMap">
+</script>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "../_base.html" %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+
+<div class="container">
+  <row class="somethingThatWorks">
+    <section class="col-md-7">
+      <form class="form-horizontal" method="POST" action="/users/signin">
+        <div class="form-group">
+          <label for="inputEmail" class="col-md-2 control-label" id="userLabel">Email</label>
+          <div class="col-md-10">
+            <input type="text" class="form-control personalInfo" id="sign_in_email" name="email">
+          </div>
+          <label for="password" class="col-md-2 control-label" id="userLabel">Password</label>
+          <div class="col-md-10">
+            <input type="password" class="form-control personalInfo" id="sign_in_password" name="password">
+          </div>
+          <button type="submit"  id="signInButton" class="btn btn-default">Submit</button>
+        </div>
+      </form>
+    </section>
+  </row>
+</div>
+<script type="text/javascript" src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="/js/signin.js"></script>
+{% endblock %}
