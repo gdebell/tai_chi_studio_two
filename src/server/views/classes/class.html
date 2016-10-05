@@ -10,12 +10,13 @@
     <div class="row idenfity_user" name="idenfity_user" value="{{user.id}}">
     {% endfor %}
 
-      <div class="col-md-5">
-        {% for class in classes %}
-         <id="class_num" input type="hidden" value="{{class.id}}" name="class" id="single_class_id">
-        <h2>{{class.name}}</h2><br><br>
-        <img src="../../images/{{class.photo_url}}" alt="instructor photo">
+    <div class="col-md-5">
+      {% for class in classes %}
+       <div id="single_class_id" input type="hidden" value="{{class.id}}" name="class" data-id={{class.id}}>
+      <h2>{{class.name}}</h2><br><br>
+      <img src="../../images/{{class.photo_url}}" alt="instructor photo">
       </div>
+    </div>
 
       <div class="col-md-7">
           <br><br>
@@ -25,7 +26,8 @@
           <p>End Time: {{class.end_time}}</p>
           <p>Available Spots: {{class.size}}</p>
           <p>{{class.description}}</p><br>
-          <a href="/classes/{{class.id}}/add_user"><button type="button" class="btn btn-success add_user_to_class" name="{{class.id}}" data-id="{{class.id}}">Sign Up For Class</button></a> <div class="alertuser"></div>
+          <a href="/classes/{{class.id}}/add_user"><button type="button" class="btn btn-success add_user_to_class" name="{{class.id}}" data-id={{class.id}}>Sign Up For Class</button></a>
+          <div class="alertuser"></div>
           {% if user.is_admin %}
           <a href="/classes/{{class.id}}/class/edit"><button type="button" class="btn btn-primary edit_class"  name="{{class.id}}" data-id={{class.id}}>Edit Class</button></a>
           <a href="/classes/{{class.id}}/class"><button type="button" class="btn btn-danger delete_class" name="{{class.id}}" data-id={{class.id}}>Delete Class</button></a>
