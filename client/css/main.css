@@ -2,7 +2,7 @@ h1 {
   font-size: 48px
 }
 
-h1, h2, h3, h4, h5, p {
+h1, h2, h3, h4, h5, p, label {
   color: #666;
 }
 
@@ -29,7 +29,6 @@ img {
 
 .alert {
   color: red;
-  font-weight: bold;
 }
 
 /* header */
