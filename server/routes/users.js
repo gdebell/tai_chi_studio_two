@@ -53,9 +53,10 @@ router.get('/viewuser', function (req, res, next) {
 router.post('/signup', validation.checkValidation, function (req, res, next) {
   var hash = bcrypt.hashSync(req.body.password, 10);
   knex('users')
+  .returning('id')
   .insert({
-    first_name: req.body.firstName,
-    last_name: req.body.lastName,
+    first_name: req.body.first_name,
+    last_name: req.body.last_name,
     email: req.body.email,
     address_line_1: req.body.address_line_1,
     address_line_2: req.body.address_line_2,
@@ -66,15 +67,21 @@ router.post('/signup', validation.checkValidation, function (req, res, next) {
     comments: req.body.comments,
     password: hash,
     is_admin: req.body.is_admin
-  }, '*')
+  })
   .then((results) => {
-    res.send({
-      redirect: '/'
-    });
+    if (results) {
+      console.log('Success results: ', results);
+      res.json({ results });
+    } else {
+      res.status(500).send({
+        status: 'error',
+        message: 'error'
+      });
+    }
   })
   .catch((err) => {
-    console.log('err', err);
-    res.status(500);
+    console.log(err);
+    return next(err);
   });
 });
 
@@ -84,11 +91,13 @@ router.get('/signin', function (req, res, next) {
 });
 
 router.post('/signin', function (req, res, next) {
+  console.log('BODY: ', req.body);
   knex('users')
   .where({
     email: req.body.email
   })
   .then((results) => {
+    console.log('RESULTS: ', results);
     if (bcrypt.compareSync(req.body.password, results[0].password)) {
       console.log('results: ', results[0].password);
       req.session.user = {
@@ -158,7 +167,7 @@ router.get('/edit/user_edit_profile', function (req, res, next) {
   });
 
 router.get('/user/logout', (req, res, next) => {
-    console.log('in logout');
+    console.log('in logout..............');
     req.session.user = {};
     req.logout();
     res.status(200).json({message:'success'});

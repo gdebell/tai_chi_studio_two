@@ -4,8 +4,8 @@
       event.preventDefault();
       const userPayload = {
         email: $('#email').val(),
-        first_name: $('#firstName').val(),
-        last_name: $('#lastName').val(),
+        first_name: $('#first_name').val(),
+        last_name: $('#last_name').val(),
         address_line_1: $('#line_1').val(),
         address_line_2: $('#line_2').val(),
         city: $('#city').val(),
