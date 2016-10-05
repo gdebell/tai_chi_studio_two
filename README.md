@@ -17,7 +17,6 @@
 ### HTML5, CSS3, JavaScript, NodeJS, Nunjucks, jQuery, Bootstrap, PostgreSQL, Knex, express.js, Ajax, local API, Google Maps API, Fortune Cookie API
 
 
-
 ### Visit Our Site:
 
 ### Log in as a manager
