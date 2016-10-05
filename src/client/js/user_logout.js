@@ -1,5 +1,4 @@
 (function () {
-  console.log('logout sanity check!');
   $('#logout').on('click', (event) => {
       event.preventDefault();
       console.log('in logout');

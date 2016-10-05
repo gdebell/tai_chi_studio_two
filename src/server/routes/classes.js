@@ -14,7 +14,8 @@ const hao = 'Hao style tai chi is exceedingly rare in China and almost non-exist
 
 //gets ALL class
 router.get('/', (req, res, next) => {
-  function getAll(tableName) {return knex(tableName).select();}
+  function getAll(tableName) {
+    return knex(tableName).select();}
   function getDay(days) {
     return knex('classes').select('*').where('classes.day', days
   );}

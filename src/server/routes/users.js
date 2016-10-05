@@ -70,7 +70,6 @@ router.post('/signup', validation.checkValidation, function (req, res, next) {
   })
   .then((results) => {
     if (results) {
-      console.log('Success results: ', results);
       res.json({ results });
     } else {
       res.status(500).send({
@@ -91,30 +90,25 @@ router.get('/signin', function (req, res, next) {
 });
 
 router.post('/signin', function (req, res, next) {
-  console.log('BODY: ', req.body);
   knex('users')
   .where({
     email: req.body.email
   })
   .then((results) => {
     if (bcrypt.compareSync(req.body.password, results[0].password)) {
-      console.log('results: ', results[0].password);
       req.session.user = {
         email: results[0].email,
         first_name: results[0].first_name,
         id: results[0].id,
         is_admin: results[0].is_admin
       };
-
       var renderObject = {
         email: results[0].email,
         first_name: results[0].first_name,
         id: results[0].id,
         is_admin: results[0].is_admin
       };
-
       var url = '/users/' + results[0].id;
-      //res.json('log in successful');
       res.status(200).json(renderObject);
     } else {
       res.status(500).send({
@@ -133,8 +127,6 @@ router.post('/signin', function (req, res, next) {
 router.get('/view', function (req, res, next) {
   var member_id = req.params.id;
   var renderObject = {};
-  //select from users by id
-  //populate edit fields
   console.log('member: ', member_id);
   knex('users')
   .where('id', member_id)
@@ -144,31 +136,11 @@ router.get('/view', function (req, res, next) {
   });
 });
 
-router.get('/edit/user_edit_profile', function (req, res, next) {
-    console.log('here in edit with req: ', req.session.user);
-    var renderObject = {};
-
-    knex('users')
-    .where({
-      email: req.session.user.email
-    })
-    .select()
-    .then((results) => {
-      renderObject = results[0];
-      console.log('renderObject: ', renderObject);
-      res.render('user_edit_profile', {renderObject});
-    })
-    .catch((err) => {
-        console.log(err);
-        res.status(500);
-        res.render('validation/signin');
-      });
-  });
-
 router.get('/user/logout', (req, res, next) => {
+
     req.session.user = {};
     req.logout();
     res.status(200).json({message:'success'});
-  });
+});
 
 module.exports = router;

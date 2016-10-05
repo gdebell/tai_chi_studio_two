@@ -1,5 +1,4 @@
 (function () {
-    console.log('users sign up sanity check!');
     $('#saveUserButton').on('click', (event) => {
       event.preventDefault();
       const userPayload = {
@@ -23,7 +22,6 @@
         data: userPayload
       })
       .done((data) => {
-        console.log('here is the return data: ', data);
         sessionStorage.setItem('email', userPayload.email);
         sessionStorage.setItem('first_name', userPayload.first_name);
         sessionStorage.setItem('id', data.results[0]);
@@ -34,6 +32,5 @@
         $('.validation').append(JSON.parse(err.responseText).message);
         console.log(err);
       });
-
     });
   })();
