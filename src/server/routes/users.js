@@ -6,13 +6,11 @@ const validation = require('./validations');
 
 //get the the page that allows a user to sign up with the studio (new user)
 router.get('/signup', function (req, res, next) {
-  console.log('here is the req: ', req.body);
   res.render('validation/signup');
 });
 
 router.get('/verify', function (req, res, next) {
   var renderObject = {};
-
   knex('users')
   .where({
     email: req.body.email,
@@ -33,7 +31,6 @@ router.get('/verify', function (req, res, next) {
 
 router.get('/viewuser', function (req, res, next) {
   var renderObject = {};
-
   knex('users')
   .where({
     email: req.session.user.email
@@ -53,15 +50,13 @@ router.get('/viewuser', function (req, res, next) {
 });
 
 //get the the page that allows a user to sign up with the studio (new user)
-router.post('/signup', (req, res, next) => {
-  console.log('testtttt', req.body);
-  // Hash the password with the salt
-  //we should use bcrypt here to store the password
+router.post('/signup', validation.checkValidation, function (req, res, next) {
   var hash = bcrypt.hashSync(req.body.password, 10);
   knex('users')
+  .returning('id')
   .insert({
-    first_name: req.body.firstName,
-    last_name: req.body.lastName,
+    first_name: req.body.first_name,
+    last_name: req.body.last_name,
     email: req.body.email,
     address_line_1: req.body.address_line_1,
     address_line_2: req.body.address_line_2,
@@ -72,10 +67,17 @@ router.post('/signup', (req, res, next) => {
     comments: req.body.comments,
     password: hash,
     is_admin: req.body.is_admin
-  }, '*')
+  })
   .then((results) => {
-    res.send(200);
-    console.log('hit .then in signup');
+    if (results) {
+      console.log('Success results: ', results);
+      res.json({ results });
+    } else {
+      res.status(500).send({
+        status: 'error',
+        message: 'error'
+      });
+    }
   })
   .catch((err) => {
     console.log(err);
