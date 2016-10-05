@@ -14,7 +14,7 @@ Manager: A manager can do everything the student can do with some additional fea
 
 Technologies Used:
 
-HTML5, CSS3, JavaScript, NodeJS, Nunjucks, jQuery, Bootstrap, PostgreSQL, Knex, express.js, Ajax, API's used: Local API, Google Maps API, Fortune Cookie API
+HTML5, CSS3, JavaScript, Nodejs, Nunjucks, jQuery, Bootstrap, PostgreSQL, Knex, express.js, Ajax, API's used: Local API, Google Maps API, Fortune Cookie API
 
 
 
