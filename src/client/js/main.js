@@ -61,7 +61,8 @@ $('.delete-user').on('click', function(e) {
   e.preventDefault();
   const userID = $(this).attr('data-id');
   console.log('You clicked on user ', userID);
-  const classID = $('#single_class_id').val();
+  const classID = $('#single_class_id').attr('value');
+  //const classID = $('#single_class_id').val();
   console.log('This is class number ', classID);
   const removeUser = {
     user_id: userID,

@@ -21,8 +21,8 @@ HTML5, CSS3, JavaScript, NodeJS, Nunjucks, jQuery, Bootstrap, PostgreSQL, Knex, 
 Visit Our Site:
 
 Log in as a manager
-EMAIL: test@gmail.com
-PASSWORD: test
+EMAIL: test1@gmail.com
+PASSWORD: test1
 
 Log in as a student
 EMAIL: test2@gmail.com
