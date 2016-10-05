@@ -137,10 +137,9 @@ router.get('/view', function (req, res, next) {
 });
 
 router.get('/user/logout', (req, res, next) => {
-
     req.session.user = {};
     req.logout();
     res.status(200).json({message:'success'});
-});
+  });
 
 module.exports = router;
