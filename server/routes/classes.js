@@ -320,7 +320,7 @@ router.post('/:id/class/edit', (req, res, next) => {
   });
 
 router.delete('/:id/class/delete/user', function (req, res, next) {
-  //console.log('DATA GOT FROM AJAX REQUEST', req.body);
+  console.log('DATA GOT FROM AJAX REQUEST', req.body);
   const userID = parseInt(req.body.user_id);
   const classID = parseInt(req.body.classes_id);
   knex('classes_users')

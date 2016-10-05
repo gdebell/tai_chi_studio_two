@@ -18,10 +18,9 @@
     {% if admin.is_admin %}
       <div class="col-xs-12 col-md-5 addmin">
         <h1>Admin Area</h1>
-        <h3><a href="/instructors/new" type="button" class="btn btn-primary">Add New instructor</a></h3>
-        <button class="btn btn-primary edit-instructor">Edit instructor</button>
-        Please select an instructor from a dropdow menu.
-        <br>
+        <h3><a href="/instructors/new" type="button" class="btn btn-primary">Add New Instructor</a></h3><br><br><br>
+
+        <p>Please select an instructor from the drop down menu.</p>
         <select id="editId" class="form-control">
         {% for instructor in instructor %}
           <option value="{{instructor.id}}">
@@ -29,9 +28,9 @@
           </option>
         {% endfor %}
         </select>
-        <br>
-        <button class="btn btn-sm btn-primary delete-instructor">Delete</button>
-        Please select an instructor from a dropdow menu.
+        <button class="btn btn-primary edit-instructor">Edit Instructor</button>
+        <br><br><br>
+        <p>Please select an instructor from the drop down menu.</p>
         <select id="deleteId" class="form-control">
         {% for instructor in instructor %}
           <option value="{{instructor.id}}">
@@ -39,6 +38,7 @@
           </option>
         {% endfor %}
         </select>
+        <button class="btn btn-sm btn-primary delete-instructor">Delete</button>
       </div>
     {% endif %}
   </div>
