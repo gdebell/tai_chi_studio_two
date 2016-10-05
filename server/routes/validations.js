@@ -47,8 +47,9 @@ function checkValidation(req, res, next) {
 }
 
 function checkUser(req, res, next) {
+  const userID = req.session.user.id;
   const errorMessage = [];
-  if (!req.session.user) {
+  if (!userID) {
     errorMessage.push('Need to log in to review.');
     const renderObject = {};
     renderObject.error = errorMessage;
