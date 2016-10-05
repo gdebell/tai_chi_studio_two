@@ -97,7 +97,6 @@ router.post('/signin', function (req, res, next) {
     email: req.body.email
   })
   .then((results) => {
-    console.log('RESULTS: ', results);
     if (bcrypt.compareSync(req.body.password, results[0].password)) {
       console.log('results: ', results[0].password);
       req.session.user = {
@@ -167,7 +166,6 @@ router.get('/edit/user_edit_profile', function (req, res, next) {
   });
 
 router.get('/user/logout', (req, res, next) => {
-    console.log('in logout..............');
     req.session.user = {};
     req.logout();
     res.status(200).json({message:'success'});
