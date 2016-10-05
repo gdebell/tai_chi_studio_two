@@ -100,7 +100,7 @@ router.post('/new', (req, res, next) => {
   });
 });
 
-// update instractor info
+// update instructor info
 router.post('/edit/:id', (req, res, next) => {
   const id = parseInt(req.params.id);
   knex('instructors')
@@ -120,7 +120,7 @@ router.post('/edit/:id', (req, res, next) => {
   });
 });
 
-// delete instractor (delete instractor and review)
+// delete instructor (delete instractor and review)
 router.delete('/:id', (req, res, next) => {
   const id = parseInt(req.params.id);
   knex('reviews')

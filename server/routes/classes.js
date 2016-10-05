@@ -34,10 +34,6 @@ router.get('/', (req, res, next) => {
     res.render('classes/classes', renderObject);
   });
 });
-//alias is above this line
-///gina is below this line
-
-//get class info for new class forms
 
 //get class info for new class forms
 router.get('/new',(req, res, next) => {
@@ -62,12 +58,11 @@ router.get('/new',(req, res, next) => {
     renderObject.classNames = results[2];
     renderObject.classDays = results[3];
     res.render('classes/newclass', renderObject);
-    //console.log(results[3]);
   });
 });
 
+//make a new class
 router.post('/', (req, res, next) => {
-  //console.log('post ', req.body);
   const className = req.body.name;
   const description = req.body.description;
   const instructor_id = req.body.instructor_id;
@@ -98,7 +93,6 @@ router.post('/', (req, res, next) => {
 
 //add a user to a class
 router.post('/class/addUserToClass', checkUser.checkSignIn, function (req, res, next) {
-  console.log('BACK IN THE POST AFTER CHECKING SIGN IN');
   if (!req.body.err) {
     const userID = req.session.user.id;
     const classID = req.body.class_id;
@@ -108,7 +102,6 @@ router.post('/class/addUserToClass', checkUser.checkSignIn, function (req, res, 
       user_id: userID
     })
     .then((data) => {
-      console.log('DATE BEING ENTERED IN DB', data);
       res.json({
         message: 'User was added to the class.'
       })
@@ -130,6 +123,7 @@ router.post('/class/addUserToClass', checkUser.checkSignIn, function (req, res, 
   }
 });
 
+//gets one class
 router.get('/:id/class', function (req, res, next) {
   const id = parseInt(req.params.id);
   knex('classes')
@@ -137,19 +131,16 @@ router.get('/:id/class', function (req, res, next) {
   .where('classes.id', id)
   .select('*', 'classes.id')
   .then((results) => {
-    //console.log('RESULTS FROM CLASS INS JOIN', results);
     knex('users')
     .join('classes_users', 'classes_users.user_id', 'users.id')
     .join('classes', 'classes.id', 'classes_users.class_id')
     .where('classes.id', id)
     .select('*')
     .then((data) => {
-      //console.log('RESULTS FROM USER/CU JOIN', data);
       const renderObject = {};
       renderObject.classes = results;
       renderObject.users = data;
       renderObject.user = req.session.user;
-      //console.log('in classes: ', renderObject);
       res.render('classes/class', renderObject);
     });
   })
@@ -160,14 +151,12 @@ router.get('/:id/class', function (req, res, next) {
 
 //gets ONE class to delete using button
 router.delete('/:id/class/delete', function (req, res, next) {
-  //console.log('HITTING THE DELETE CLASS ROUTE');
   const id = parseInt(req.params.id);
   knex('classes')
   .del()
   .where('id', id)
   .returning('*')
   .then((result) => {
-    //console.log('item you deleted', result);
     const id = result[0].instructor_id;
     knex('classes')
     .where('id', id)
@@ -213,9 +202,7 @@ router.get('/:id/class/edit', function (req, res, next) {
   ])
   .then((results) => {
     const renderObject = {};
-    //console.log(results);
     renderObject.id = id;
-    //console.log(renderObject.id);
     renderObject.classes = results[0];
     renderObject.instructors = results[1];
     renderObject.days = results[2];
@@ -310,7 +297,6 @@ router.post('/:id/class/edit', (req, res, next) => {
     })
     .returning('*')
     .then((results) => {
-      //console.log('UPDATE: ', results);
       res.redirect('/classes');
     })
     .catch((err) => {
@@ -320,7 +306,6 @@ router.post('/:id/class/edit', (req, res, next) => {
   });
 
 router.delete('/:id/class/delete/user', function (req, res, next) {
-  console.log('DATA GOT FROM AJAX REQUEST', req.body);
   const userID = parseInt(req.body.user_id);
   const classID = parseInt(req.body.classes_id);
   knex('classes_users')
