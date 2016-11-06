@@ -14,7 +14,7 @@
 
 ## Technologies Used:
 
-### HTML5, CSS3, JavaScript, NodeJS, Nunjucks, jQuery, Bootstrap, PostgreSQL, Knex, express.js, Ajax, local API, Google Maps API, Fortune Cookie API
+### HTML5, CSS3, JavaScript, Node.js, Nunjucks, jQuery, Bootstrap, PostgreSQL, Knex, Express.js, AJAX, local API, Google Maps API, Fortune Cookie API, Heroku, Git, Github Pages
 
 
 ### Visit Our Site:
